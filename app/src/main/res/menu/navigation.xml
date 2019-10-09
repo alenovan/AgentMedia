@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_home_black_24dp" />
+    <item android:id="@+id/profil"
+        android:title="Profil"
+        android:icon="@drawable/ic_account_circle_black_24dp" />
+</menu>
