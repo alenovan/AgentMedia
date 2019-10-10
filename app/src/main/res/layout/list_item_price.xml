@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/row_list_price"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_margin="5dp"
