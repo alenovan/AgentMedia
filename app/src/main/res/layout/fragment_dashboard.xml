@@ -326,7 +326,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/logo_flash"
                                         android:fontFamily="@font/poppinslight"
-                                        android:text="Tagihan Listrik"
+                                        android:text="Token Listrik"
                                         android:layout_marginTop="9dp"
                                         android:textAlignment="center"
                                         android:textColor="@android:color/black"

@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 
 import com.example.agentmedia.R;
 import com.example.agentmedia.adapater.ListPriceAdapter;
@@ -17,10 +19,13 @@ import com.example.agentmedia.model.TransaksiItem;
 import com.example.agentmedia.tools.PublicTools;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class PulsaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private PublicTools tools;
+    Spinner provider;
     private ListPriceAdapter adapter;
     private ArrayList<PriceItem> priceArrayList;
     @Override
@@ -29,6 +34,7 @@ public class PulsaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pulsa);
         declaration();
         listTransaksi();
+        functionProvider();
     }
 
     public void declaration(){
@@ -37,7 +43,9 @@ public class PulsaActivity extends AppCompatActivity {
         recyclerView.setNestedScrollingEnabled(false);
     }
 
+    public void functionProvider(){
 
+    }
 
     public  void listTransaksi(){
 
