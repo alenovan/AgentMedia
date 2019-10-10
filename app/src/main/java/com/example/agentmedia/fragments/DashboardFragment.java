@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.agentmedia.R;
+import com.example.agentmedia.activity.ListProvider;
 import com.example.agentmedia.activity.ListrikActivity;
 import com.example.agentmedia.activity.PaketActivity;
 import com.example.agentmedia.activity.PulsaActivity;
@@ -47,9 +48,9 @@ public class DashboardFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         declaration(view);
-        tools.functionIntentRelative(relPulsa, PulsaActivity.class);
-        tools.functionIntentRelative(relPaket, PaketActivity.class);
-        tools.functionIntentRelative(relListrik, ListrikActivity.class);
+        tools.functionIntentRelative(relPulsa, ListProvider.class,1);
+        tools.functionIntentRelative(relPaket, ListProvider.class,2);
+        tools.functionIntentRelative(relListrik, ListrikActivity.class,0);
         listTransaksi();
         return view;
     }

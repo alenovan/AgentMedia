@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class PublicTools {
@@ -13,7 +14,18 @@ public class PublicTools {
         this.context = context;
     }
 
-    public void functionIntentRelative(RelativeLayout view, final Class tujuan){
+    public void functionIntentRelative(RelativeLayout view, final Class tujuan, final int variable){
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,tujuan);
+                intent.putExtra("theme",variable);
+                context.startActivity(intent);
+            }
+        });
+
+    }
+    public void functionIntentLinear(LinearLayout view, final Class tujuan){
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,4 +35,5 @@ public class PublicTools {
         });
 
     }
+
 }
