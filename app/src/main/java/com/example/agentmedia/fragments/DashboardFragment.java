@@ -21,6 +21,7 @@ import com.example.agentmedia.activity.ListProvider;
 import com.example.agentmedia.activity.ListrikActivity;
 import com.example.agentmedia.activity.PaketActivity;
 import com.example.agentmedia.activity.PulsaActivity;
+import com.example.agentmedia.activity.TopupActivity;
 import com.example.agentmedia.adapater.ListTransaksiAdapter;
 import com.example.agentmedia.model.TransaksiItem;
 import com.example.agentmedia.tools.PublicTools;
@@ -35,7 +36,7 @@ public class DashboardFragment extends Fragment {
     private PublicTools tools;
     private ListTransaksiAdapter adapter;
     private ArrayList<TransaksiItem> transArrayList;
-    RelativeLayout relPulsa,relPaket,relListrik;
+    RelativeLayout relPulsa,relPaket,relListrik,relTopup;
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -51,6 +52,7 @@ public class DashboardFragment extends Fragment {
         tools.functionIntentRelative(relPulsa, ListProvider.class,1);
         tools.functionIntentRelative(relPaket, ListProvider.class,2);
         tools.functionIntentRelative(relListrik, ListrikActivity.class,0);
+        tools.functionIntentRelative(relTopup, TopupActivity.class,0);
         listTransaksi();
         return view;
     }
@@ -59,6 +61,7 @@ public class DashboardFragment extends Fragment {
         tools = new PublicTools(getActivity());
         relPulsa = view.findViewById(R.id.relPulsa);
         relPaket = view.findViewById(R.id.relPaket);
+        relTopup = view.findViewById(R.id.relTopup);
         relListrik = view.findViewById(R.id.relListrik);
         recyclerView = view.findViewById(R.id.list_transaksi);
         recyclerView.setNestedScrollingEnabled(false);

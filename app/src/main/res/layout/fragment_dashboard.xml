@@ -122,6 +122,7 @@
 
                                 <RelativeLayout
                                     android:layout_width="1dp"
+                                    android:id="@+id/relTopup"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2">
 

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ListProvider"></activity>
+        <activity android:name=".activity.TopupActivity"></activity>
+        <activity android:name=".activity.ListProvider" />
         <activity android:name=".activity.ListrikActivity" />
         <activity android:name=".activity.PaketActivity" />
         <activity android:name=".activity.PulsaActivity" />
