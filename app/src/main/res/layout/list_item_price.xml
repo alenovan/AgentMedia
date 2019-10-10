@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/price_rounded"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tag_price"
+            android:fontFamily="@font/poppinslight"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="5.000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/sell_price"
+            android:fontFamily="@font/poppinslight"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="Harga Rp.5.0000"/>
+
+    </LinearLayout>
+
+</LinearLayout>
