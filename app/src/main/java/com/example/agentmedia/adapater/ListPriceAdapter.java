@@ -1,5 +1,6 @@
 package com.example.agentmedia.adapater;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agentmedia.R;
 import com.example.agentmedia.model.PriceItem;
 import com.example.agentmedia.model.TransaksiItem;
+import com.example.agentmedia.tools.PublicTools;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListPriceAdapter extends RecyclerView.Adapter<ListPriceAdapter.PriceViewHolder> {
     Integer row_index = -1;
-    ContextCompat context;
-    private ArrayList<PriceItem> dataList;
+    Context context;
+    private List<PriceItem> dataList;
+    PublicTools publicTools;
 
-    public ListPriceAdapter(ArrayList<PriceItem> dataList) {
+    public ListPriceAdapter(List<PriceItem> dataList, Context context) {
         this.dataList = dataList;
+        this.context = context;
     }
 
     @Override
@@ -34,8 +39,9 @@ public class ListPriceAdapter extends RecyclerView.Adapter<ListPriceAdapter.Pric
 
     @Override
     public void onBindViewHolder(PriceViewHolder holder, final int position) {
-        holder.tag_price.setText(dataList.get(position).getTag_price());
-        holder.price_sell.setText(dataList.get(position).getPrice_sell());
+        publicTools = new PublicTools(context);
+        holder.tag_price.setText(publicTools.numberFormat(Integer.valueOf(dataList.get(position).getNameProduct()))+"");
+        holder.price_sell.setText(publicTools.numberFormat(Integer.valueOf(dataList.get(position).getPriceSell()))+"");
 
         holder.row_list_price.setOnClickListener(new View.OnClickListener() {
             @Override

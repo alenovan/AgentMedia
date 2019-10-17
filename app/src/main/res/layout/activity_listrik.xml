@@ -262,7 +262,8 @@
                     android:fontFamily="@font/poppinslight"
                     android:text="Beli"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/beli"/>
 
 
             </LinearLayout>

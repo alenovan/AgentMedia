@@ -19,13 +19,14 @@ import com.example.agentmedia.model.TransaksiItem;
 import com.example.agentmedia.tools.PublicTools;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListProviderAdapter extends RecyclerView.Adapter<ListProviderAdapter.TransaksiViewHolder> {
 
     private PublicTools tools;
-    private ArrayList<ProviderItem> dataList;
+    private List<ProviderItem> dataList;
     public Context mContext ;
-    public ListProviderAdapter(Context context,ArrayList<ProviderItem> dataList) {
+    public ListProviderAdapter(Context context, List<ProviderItem> dataList) {
         this.dataList = dataList;
         mContext  = context;
     }
@@ -40,16 +41,21 @@ public class ListProviderAdapter extends RecyclerView.Adapter<ListProviderAdapte
     @Override
     public void onBindViewHolder(final TransaksiViewHolder holder, final int position) {
         tools = new PublicTools(mContext);
-        holder.title.setText(dataList.get(position).getTitle());
+        holder.title.setText(dataList.get(position).getNameProductType());
 
         holder.provider_row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(dataList.get(position).getStatus_theme() == 1){
+                if(dataList.get(position).getIdCategory().equals("1")){
                     Intent intent = new Intent(mContext, PulsaActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("type",dataList.get(position).getIdProductType());
+                    intent.putExtra("cat",dataList.get(position).getIdCategory());
                     mContext.startActivity(intent);
                 }else{
                     Intent intent = new Intent(mContext, PaketActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("type",dataList.get(position).getIdCategory());
                     mContext.startActivity(intent);
 
                 }

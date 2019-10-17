@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
                             android:fontFamily="@font/poppinslight"
-                            android:hint="081334367717"
+                            android:hint="50.000"
                             android:inputType="number"
                             android:textSize="15sp" />
 
@@ -178,7 +178,7 @@
                     android:textColor="@android:color/black" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/list_price"
+                    android:id="@+id/list_payment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp" />

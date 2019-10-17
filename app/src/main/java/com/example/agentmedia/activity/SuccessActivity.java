@@ -8,20 +8,20 @@ import android.os.Handler;
 
 import com.example.agentmedia.R;
 
-public class SplashActivity extends AppCompatActivity {
+public class SuccessActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
+        setContentView(R.layout.activity_success);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), IntroActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
-        }, 3000L); //3000 L = 3 detik
+        }, 2500L); //3000 L = 3 detik
+
     }
 }
