@@ -27,11 +27,22 @@
         <item>@color/dot_light_screen3</item>
         <item>@color/dot_light_screen4</item>
     </array>
-
+    <color name="themeColor">#01bcf1</color>
     <array name="array_dot_inactive">
         <item>@color/dot_dark_screen1</item>
         <item>@color/dot_dark_screen2</item>
         <item>@color/dot_dark_screen3</item>
         <item>@color/dot_dark_screen4</item>
     </array>
+    <!--normal colors-->
+    <color name="darkTextColor">#020000</color>
+
+
+    <!--colors for light mode-->
+    <color name="contentTextColor">#020000</color>
+    <color name="register_bk_color">#01bcf1</color>
+    <color name="login_bk_color">#fff</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#01bcf1</color>
+
 </resources>

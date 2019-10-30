@@ -7,4 +7,6 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
     <string name="errorJaringan">Kesalahan Jaringan</string>
+    <string name="login_email_hint">No Hp</string>
+    <string name="login_password_hint">Password</string>
 </resources>
