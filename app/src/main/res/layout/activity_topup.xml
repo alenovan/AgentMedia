@@ -146,6 +146,7 @@
                             android:layout_weight="3"
                             android:fontFamily="@font/poppinslight"
                             android:hint="50.000"
+                            android:id="@+id/nominal"
                             android:inputType="number"
                             android:textSize="15sp" />
 

@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agentmedia.R;
 import com.example.agentmedia.api.PublicStatic;
 import com.example.agentmedia.model.PaymentItem;
-import com.example.agentmedia.model.TransaksiItem;
+import com.example.agentmedia.tools.RecyclerItemClickListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListPaymentAdapter extends RecyclerView.Adapter<ListPaymentAdapter.TransaksiViewHolder> {
@@ -23,6 +22,7 @@ public class ListPaymentAdapter extends RecyclerView.Adapter<ListPaymentAdapter.
 
     private List<PaymentItem> dataList;
     Context mContext;
+    private RecyclerItemClickListener clickListener;
     public ListPaymentAdapter(List<PaymentItem> dataList, Context context) {
         this.dataList = dataList;
         this.mContext = context;
@@ -33,6 +33,10 @@ public class ListPaymentAdapter extends RecyclerView.Adapter<ListPaymentAdapter.
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_item_payment_account, parent, false);
         return new TransaksiViewHolder(view);
+    }
+
+    public void setClickListener(RecyclerItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
     }
 
     @Override
@@ -47,7 +51,7 @@ public class ListPaymentAdapter extends RecyclerView.Adapter<ListPaymentAdapter.
         return (dataList != null) ? dataList.size() : 0;
     }
 
-    public class TransaksiViewHolder extends RecyclerView.ViewHolder{
+    public class TransaksiViewHolder extends RecyclerView.ViewHolder {
         private TextView code,name;
         private ImageView logo;
         public TransaksiViewHolder(View itemView) {
@@ -56,5 +60,7 @@ public class ListPaymentAdapter extends RecyclerView.Adapter<ListPaymentAdapter.
             logo = (ImageView) itemView.findViewById(R.id.logo);
             name = (TextView) itemView.findViewById(R.id.name);
         }
+
+
     }
 }

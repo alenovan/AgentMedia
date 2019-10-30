@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class PaymentItem {
 
+
     @SerializedName("id_payment_account")
     @Expose
     private String idPaymentAccount;
