@@ -57,5 +57,12 @@ public class PublicTools {
     }
 
 
+    public String numberFormatWithoutRp(int number){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getInstance(localeID);
+        return formatRupiah.format(number);
+    }
+
+
 
 }

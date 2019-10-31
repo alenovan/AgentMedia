@@ -76,4 +76,10 @@ public interface  Service {
     Call<JsonObject> topupDetailRequest(@Field("id_member") String id_member,
                                         @Field("id_topup") String id_topup);
 
+
+    // Fungsi getSaldo
+    @FormUrlEncoded
+    @POST("member/ajax_action_get_member")
+    Call<JsonObject> getSaldoRequest(@Field("id_member") String id_member);
+
 }

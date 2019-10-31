@@ -128,7 +128,7 @@ public class TopupPaymentActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), error_message, Toast.LENGTH_SHORT).show();
                         }
                 }else{
-//                    Toast.makeText(getApplicationContext(), "Layanan Saat ini sendang gagguan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Layanan Saat ini sendang gagguan", Toast.LENGTH_SHORT).show();
                 }
             }
 

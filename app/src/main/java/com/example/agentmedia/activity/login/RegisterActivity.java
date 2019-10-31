@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }else{
-//                    Toast.makeText(getApplicationContext(), "Layanan Saat ini sendang gagguan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Layanan Saat ini sendang gagguan", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
