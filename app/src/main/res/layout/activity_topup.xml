@@ -102,9 +102,10 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppinslight"
                             android:gravity="right"
-                            android:text="12.000"
+                            android:text="000"
                             android:textColor="@android:color/black"
                             android:textSize="17sp"
+                            android:id="@+id/saldo"
                             android:textStyle="bold" />
                     </LinearLayout>
 

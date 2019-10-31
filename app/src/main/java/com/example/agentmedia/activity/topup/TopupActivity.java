@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agentmedia.R;
@@ -21,6 +22,8 @@ import com.example.agentmedia.api.SharedPrefManager;
 import com.example.agentmedia.model.PaymentItem;
 import com.example.agentmedia.tools.RecyclerItemClickListener;
 import com.example.agentmedia.tools.PublicTools;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +41,7 @@ public class TopupActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private PublicTools tools;
     private EditText nominal;
+    TextView saldo;
     private ListPaymentAdapter adapter;
     private List<PaymentItem> payArrayList = new ArrayList<>();
     SharedPrefManager sharedPrefManager;
@@ -64,9 +68,11 @@ public class TopupActivity extends AppCompatActivity{
     public void declaration(){
         sharedPrefManager = new SharedPrefManager(this);
         tools = new PublicTools(getApplicationContext());
+        saldo = findViewById(R.id.saldo);
         recyclerView = findViewById(R.id.list_payment);
         nominal = findViewById(R.id.nominal);
         recyclerView.setNestedScrollingEnabled(false);
+        saldo();
     }
 
     public  void listTransaksi(){
@@ -154,6 +160,36 @@ public class TopupActivity extends AppCompatActivity{
                     }
                 })
         );
+    }
+
+    public  void saldo(){
+        Service service = ApiClient.getRetrofitInstance().create(Service.class);
+        String id_member = sharedPrefManager.getSpId();
+        service.getSaldoRequest(id_member).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                String status = response.body().getAsJsonObject().get("result").toString();
+                if (status.equals("true")){
+                    JsonArray array = response.body().getAsJsonObject().getAsJsonArray("data");
+                    Log.d("hasilDetail",array.toString());
+                    for (int i = 0; i < array.size(); i++) {
+                        JsonObject detail =  array.get(i).getAsJsonObject();
+//                        saldo.setText(detail.get("saldo_member").toString().replace("\"", ""));
+                        saldo.setText(tools.numberFormatWithoutRp(Integer.valueOf(detail.get("saldo_member").toString().replace("\"", ""))).toString());
+                    }
+                } else {
+                    String error_message = status;
+                    System.out.println(response.body().getAsJsonObject());
+                    Toast.makeText(getApplicationContext(), error_message, Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Mohon Maaf Layanan sedang gagguan", Toast.LENGTH_SHORT).show();
+                Log.e("errorPaymentList",t.getMessage());
+            }
+
+        });
     }
 
 
