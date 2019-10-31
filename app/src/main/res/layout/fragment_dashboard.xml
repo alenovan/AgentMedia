@@ -92,12 +92,12 @@
                                         android:textSize="10sp" />
 
                                     <TextView
-                                        android:id="@+id/saldo"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="14dp"
+                                        android:layout_height="wrap_content"
                                         android:fontFamily="@font/poppinslight"
                                         android:gravity="right"
                                         android:text="0"
+                                        android:id="@+id/saldo"
                                         android:textColor="@android:color/black"
                                         android:textSize="17sp"
                                         android:textStyle="bold" />

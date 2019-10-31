@@ -161,6 +161,7 @@ public class TopupPaymentActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), SuccessActivity.class);
                         i.putExtra("code","topup");
                         startActivity(i);
+                        finish();
                     } else {
                         JsonArray array = response.body().getAsJsonObject().getAsJsonArray("error");
                         Log.d("hasilDetail",response.body().getAsJsonObject().toString());

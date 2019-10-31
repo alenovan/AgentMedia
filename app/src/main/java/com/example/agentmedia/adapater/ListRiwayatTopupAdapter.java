@@ -59,7 +59,7 @@ public class ListRiwayatTopupAdapter extends RecyclerView.Adapter<ListRiwayatTop
             holder.status.setText("Success");
             holder.frameStatus.getBackground().setColorFilter(Color.parseColor("#14a895"), PorterDuff.Mode.SRC_ATOP);
         }else if(status.equals("4")){
-            holder.status.setText("Error");
+            holder.status.setText("Di tolak");
             holder.frameStatus.getBackground().setColorFilter(Color.parseColor("#d1395c"), PorterDuff.Mode.SRC_ATOP);
         }
     }
