@@ -54,7 +54,7 @@ public class RiwayatTransaksiActivity extends AppCompatActivity {
             transArrayList.add(new TransaksiItem("Pulsa XL", "29 September 2019", "081334367717", "Success"));
         }
 
-        adapter = new ListTransaksiAdapter(transArrayList);
+        adapter = new ListTransaksiAdapter(transArrayList,getApplication());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

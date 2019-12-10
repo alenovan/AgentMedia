@@ -75,6 +75,7 @@ public class ListProvider extends AppCompatActivity {
         call.enqueue(new Callback<List<ProviderItem>>() {
             @Override
             public void onResponse(Call<List<ProviderItem>> call, Response<List<ProviderItem>> response) {
+                Log.e("successProvider",response.body().toString());
                 if(response.isSuccessful()) {
                     generateDataList(response.body());
                 }else{
@@ -91,6 +92,7 @@ public class ListProvider extends AppCompatActivity {
 
 
     }
+
 
     public  void listTransaksiPaket(){
         Service service = ApiClient.getRetrofitInstance().create(Service.class);

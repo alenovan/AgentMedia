@@ -19,21 +19,22 @@ public class SuccessActivity extends AppCompatActivity {
         final Handler handler = new Handler();
         try {
            if(getIntent().getStringExtra("code").equals("topup")){
+               TextView text = findViewById(R.id.text);
+               text.setText("Selamat \n Pesanan sedang di proses");
                handler.postDelayed(new Runnable() {
                    @Override
                    public void run() {
-                       TextView text = findViewById(R.id.text);
-                       text.setText("Selamat \n Pesanan sedang di proses");
                        startActivity(new Intent(getApplicationContext(), RiwayatTopupActivity.class));
                        finish();
                    }
                }, 3500L); //3000 L = 3 detik
            }else{
+               TextView text = findViewById(R.id.text);
+               text.setText("Selamat \n Pesanan sedang di proses");
                handler.postDelayed(new Runnable() {
                    @Override
                    public void run() {
-                       TextView text = findViewById(R.id.text);
-                       text.setText("Selamat \n Pesanan Berhasil");
+
                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                        finish();
                    }

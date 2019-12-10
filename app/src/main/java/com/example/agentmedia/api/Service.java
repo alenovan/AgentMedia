@@ -50,6 +50,15 @@ public interface  Service {
                                        @Field("no_hp") String no,
                                        @Field("ktp_member") String ktp);
 
+
+    // Fungsi pemesanan
+    @FormUrlEncoded
+    @POST("pemesanan/ajax_action_pemesanan")
+    Call<ResponseBody> pemesnanRequest(@Field("id_member") String id_member,
+                                       @Field("id_product") String id_product,
+                                       @Field("tujuan") String tujuan);
+
+
     // Fungsi login
     @FormUrlEncoded
     @POST("login/ajax_action_login")

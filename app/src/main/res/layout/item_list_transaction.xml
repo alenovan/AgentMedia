@@ -25,9 +25,10 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="9dp"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/xl">
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/logo_layanan"
+                    android:src="@drawable/coba"
+                    android:scaleType="fitCenter">
 
                 </ImageView>
             </RelativeLayout>
@@ -37,6 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:paddingLeft="20px"
                 android:orientation="vertical">
 
                 <TextView
@@ -44,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinslight"
                     android:id="@+id/title"
-                    android:text="PULSA SIMPATI - 50.000"
+                    android:text="RS0001"
                     android:textColor="@android:color/black"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -54,7 +56,7 @@
                     android:id="@+id/tujuan"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinslight"
-                    android:text="6281334367717"
+                    android:text="Rp.50.000"
                     android:textSize="10sp" />
 
                 <TextView

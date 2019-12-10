@@ -103,7 +103,7 @@ public class DashboardFragment extends Fragment {
             transArrayList.add(new TransaksiItem("Pulsa XL", "29 September 2019", "081334367717", "Success"));
         }
 
-        adapter = new ListTransaksiAdapter(transArrayList);
+        adapter = new ListTransaksiAdapter(transArrayList,getActivity());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

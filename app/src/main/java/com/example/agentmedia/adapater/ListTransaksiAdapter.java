@@ -1,12 +1,15 @@
 package com.example.agentmedia.adapater;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.agentmedia.R;
 import com.example.agentmedia.model.TransaksiItem;
 
@@ -16,9 +19,10 @@ public class ListTransaksiAdapter extends RecyclerView.Adapter<ListTransaksiAdap
 
 
     private ArrayList<TransaksiItem> dataList;
-
-    public ListTransaksiAdapter(ArrayList<TransaksiItem> dataList) {
+    Context ctx;
+    public ListTransaksiAdapter(ArrayList<TransaksiItem> dataList,Context ctx) {
         this.dataList = dataList;
+        this.ctx = ctx;
     }
 
     @Override
@@ -34,6 +38,7 @@ public class ListTransaksiAdapter extends RecyclerView.Adapter<ListTransaksiAdap
         holder.date.setText(dataList.get(position).getDate());
         holder.tujuan.setText(dataList.get(position).getTujuan());
         holder.status.setText(dataList.get(position).getStatus());
+//        Glide.with(ctx).load(image).into(holder.logo_layanan);
     }
 
     @Override
@@ -43,13 +48,14 @@ public class ListTransaksiAdapter extends RecyclerView.Adapter<ListTransaksiAdap
 
     public class TransaksiViewHolder extends RecyclerView.ViewHolder{
         private TextView title,date,tujuan,status;
-
+        ImageView logo_layanan;
         public TransaksiViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
             date = (TextView) itemView.findViewById(R.id.date);
             tujuan = (TextView) itemView.findViewById(R.id.tujuan);
             status = (TextView) itemView.findViewById(R.id.status);
+            logo_layanan = (ImageView) itemView.findViewById(R.id.logo_layanan);
         }
     }
 }

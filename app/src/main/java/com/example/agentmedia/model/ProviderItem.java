@@ -27,6 +27,11 @@ public class ProviderItem {
     @Expose
     private Object deleteAt;
 
+
+    @SerializedName("nama_file")
+    @Expose
+    private Object nama_file;
+
     public String getIdProductType() {
         return idProductType;
     }
@@ -81,6 +86,15 @@ public class ProviderItem {
 
     public void setDeleteAt(Object deleteAt) {
         this.deleteAt = deleteAt;
+    }
+
+
+    public Object getNama_file() {
+        return nama_file;
+    }
+
+    public void setNama_file(Object nama_file) {
+        this.nama_file = nama_file;
     }
 
 }
