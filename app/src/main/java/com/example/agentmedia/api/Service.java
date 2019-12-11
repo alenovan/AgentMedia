@@ -3,6 +3,7 @@ package com.example.agentmedia.api;
 import com.example.agentmedia.model.PaymentItem;
 import com.example.agentmedia.model.PriceItem;
 import com.example.agentmedia.model.ProviderItem;
+import com.example.agentmedia.model.RiwayatItem;
 import com.example.agentmedia.model.topup.RiwayatTopupItem;
 import com.google.gson.JsonObject;
 
@@ -18,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface  Service {
@@ -41,6 +43,12 @@ public interface  Service {
     //getProduct
     @GET("product/ajax_action_get_product")
     Call<List<PriceItem>> getAllPrice(@Query("cat") String cat, @Query("api") String api, @Query("type") String type);
+
+
+    //getPRiwayat
+    @GET("pemesanan/ajax_action_get_pemesanan")
+    Call<List<RiwayatItem>> getRiwayat(@Query("id_member") String id_member);
+
 
     // Fungsi register
     @FormUrlEncoded

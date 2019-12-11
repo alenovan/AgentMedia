@@ -24,10 +24,14 @@ import com.example.agentmedia.activity.RiwayatPointActivity;
 import com.example.agentmedia.activity.topup.RiwayatTopupActivity;
 import com.example.agentmedia.activity.RiwayatTransaksiActivity;
 import com.example.agentmedia.activity.topup.TopupActivity;
+import com.example.agentmedia.adapater.ListProviderAdapter;
+import com.example.agentmedia.adapater.ListRiwayatTransaksiAdapter;
 import com.example.agentmedia.adapater.ListTransaksiAdapter;
 import com.example.agentmedia.api.ApiClient;
 import com.example.agentmedia.api.Service;
 import com.example.agentmedia.api.SharedPrefManager;
+import com.example.agentmedia.model.ProviderItem;
+import com.example.agentmedia.model.RiwayatItem;
 import com.example.agentmedia.model.TransaksiItem;
 import com.example.agentmedia.tools.PublicTools;
 import com.google.gson.JsonArray;
@@ -38,6 +42,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -52,8 +57,8 @@ public class DashboardFragment extends Fragment {
     private PublicTools tools;
     TextView text_rincian,saldo;
     SharedPrefManager sharedPrefManager;
-    private ListTransaksiAdapter adapter;
-    private ArrayList<TransaksiItem> transArrayList;
+    private ListRiwayatTransaksiAdapter adapter;
+    private ArrayList<RiwayatItem> transArrayList;
     RelativeLayout relPulsa,relPaket,relListrik,relTopup,relRiwayatTopup,relRiwayatPoint;
     public DashboardFragment() {
         // Required empty public constructor
@@ -72,7 +77,7 @@ public class DashboardFragment extends Fragment {
         tools.functionIntentRelative(relListrik, ListrikActivity.class,0);
         tools.functionIntentRelative(relTopup, TopupActivity.class,0);
         tools.functionIntentRelative(relRiwayatTopup, RiwayatTopupActivity.class,0);
-        tools.functionIntentTextView(text_rincian, RiwayatTransaksiActivity.class);
+        tools.functionIntentTextView(text_rincian, RiwayatPointActivity.class);
         tools.functionIntentRelative(relRiwayatPoint, RiwayatPointActivity.class,0);
         listTransaksi();
         saldo();
@@ -96,18 +101,49 @@ public class DashboardFragment extends Fragment {
 
 
 
+//    public  void listTransaksi(){
+//
+//        transArrayList = new ArrayList<>();
+//        for (int i = 0 ; i < 10;i++) {
+//            transArrayList.add(new TransaksiItem("Pulsa XL", "29 September 2019", "081334367717", "Success"));
+//        }
+//
+//        adapter = new ListTransaksiAdapter(transArrayList,getActivity());
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(adapter);
+//
+//    }
+
     public  void listTransaksi(){
+        String id_member = sharedPrefManager.getSpId();
+        Service service = ApiClient.getRetrofitInstance().create(Service.class);
+        Call<List<RiwayatItem>> call = service.getRiwayat(id_member);
+        call.enqueue(new Callback<List<RiwayatItem>>() {
+            @Override
+            public void onResponse(Call<List<RiwayatItem>> call, Response<List<RiwayatItem>> response) {
+                if(response.isSuccessful()) {
+                    generateDataList(response.body());
+                }else{
+                    Toast.makeText(getActivity(), "Mohon Cek Koneksi Internet anda", Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        transArrayList = new ArrayList<>();
-        for (int i = 0 ; i < 10;i++) {
-            transArrayList.add(new TransaksiItem("Pulsa XL", "29 September 2019", "081334367717", "Success"));
-        }
+            @Override
+            public void onFailure(Call<List<RiwayatItem>> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("errorPaymentList",t.getMessage());
+            }
+        });
 
-        adapter = new ListTransaksiAdapter(transArrayList,getActivity());
+
+    }
+
+    private void generateDataList(List<RiwayatItem> listTransaksi) {
+        adapter = new ListRiwayatTransaksiAdapter(listTransaksi,getActivity());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
     }
 
     public  void saldo(){

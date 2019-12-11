@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -103,6 +103,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:id="@+id/name"
                                     android:fontFamily="@font/poppinslight"
                                     android:text="Alenovan Wradhika Putra" />
 
@@ -126,6 +127,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:id="@+id/phone"
                                     android:fontFamily="@font/poppinslight"
                                     android:text="081334367717" />
 
@@ -141,7 +143,7 @@
                                     android:layout_width="120dp"
                                     android:layout_height="match_parent"
                                     android:fontFamily="@font/poppinslight"
-                                    android:text="Email"
+                                    android:text="Ktp"
                                     android:textColor="@android:color/black" />
 
 
@@ -149,6 +151,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:id="@+id/email"
                                     android:fontFamily="@font/poppinslight"
                                     android:text="novannanega@gmail.com" />
 
@@ -162,6 +165,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="8dp"
+                        android:visibility="gone"
                         app:cardElevation="4dp"
                         app:cardUseCompatPadding="true">
 
@@ -300,4 +304,16 @@
         </RelativeLayout>
     </ScrollView>
 
-</LinearLayout>
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+        android:id="@+id/cirLoginButton"
+        style="@style/loginButton"
+        app:spinning_bar_width="4dp"
+        android:layout_alignParentBottom="true"
+        app:spinning_bar_color="#FFF"
+        android:text="Logout"
+        android:layout_marginTop="@dimen/loginViewsMargin"
+        app:spinning_bar_padding="6dp"
+        android:layout_marginBottom="40dp"
+        android:layout_centerInParent="true"
+        app:initialCornerAngle="27dp"/>
+</RelativeLayout>

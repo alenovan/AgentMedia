@@ -205,7 +205,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/logo_tropy"
                                         android:fontFamily="@font/poppinslight"
-                                        android:text="Riwayat Point"
+                                        android:text="Riwayat Pemesanan"
                                         android:textAlignment="center"
                                         android:textColor="@android:color/black"
                                         android:textSize="11sp" />
