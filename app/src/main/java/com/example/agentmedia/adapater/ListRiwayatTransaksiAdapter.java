@@ -53,16 +53,21 @@ public class ListRiwayatTransaksiAdapter extends RecyclerView.Adapter<ListRiwaya
             holder.frame_layout.getBackground().setColorFilter(Color.parseColor("#EB651C"), PorterDuff.Mode.SRC_ATOP);
         }else if(status.equals("2")){
             holder.status.setText("Proses");
-        }else if(status.equals("20")) {
+        }else if(status.equals("22")) {
             holder.status.setText("Success");
-            holder.frame_layout.getBackground().setColorFilter(Color.parseColor("#14a895"), PorterDuff.Mode.SRC_ATOP);
+            holder.frame_layout.getBackground().setColorFilter(Color.parseColor("#4CE11C"), PorterDuff.Mode.SRC_ATOP);
         }else if(status.equals("40")){
             holder.status.setText("Di tolak");
             holder.frame_layout.getBackground().setColorFilter(Color.parseColor("#d1395c"), PorterDuff.Mode.SRC_ATOP);
         }else{
             holder.status.setText("Proses");
         }
-        Glide.with(ctx).load(PublicStatic.path+"type/"+dataList.get(position).getNamaFile().toString()).into(holder.logo_layanan);
+        if(dataList.get(position).getIdProductType().equals("11") ){
+            Glide.with(ctx).load(R.drawable.flash).into(holder.logo_layanan);
+        }else{
+            Glide.with(ctx).load(PublicStatic.path+"type/"+dataList.get(position).getNamaFile().toString()).into(holder.logo_layanan);
+        }
+
     }
 
     @Override
